@@ -20,12 +20,12 @@ def listar_tarefas_paginadas(offset):
     return cursor.fetchall()
 
 # Função para inserir uma nova tarefa
-def inserir_tarefa(descricao, empregador, endereco, valor, data, avaliacao, status) -> Tarefa:
+def inserir_tarefa(descricao, empregador, endereco, valor, data, status) -> Tarefa:
     conexao = obter_conexao()
     cursor = conexao.cursor()
     cursor.execute(
         INSERIR_TAREFA,
-        (descricao, empregador, endereco, valor, data, avaliacao, status),
+        (descricao, empregador, endereco, valor, data, status),
     )
     conexao.commit()
     conexao.close()
@@ -55,11 +55,11 @@ def buscar_tarefa_por_id(id_tarefa : int) -> Tarefa:
             id=resultado[0],
             descricao=resultado[1],
             empregador=resultado[2],
-            endereco=resultado[3],
-            valor=resultado[4],
-            data=resultado[5],
-            avaliacao=resultado[6],
-            status=resultado[6])
+            avaliacao=resultado[3],
+            endereco=resultado[4],
+            valor=resultado[5],
+            data=resultado[6],
+            status=resultado[7])
     return None
 
 # Função para listar tarefas por empregador

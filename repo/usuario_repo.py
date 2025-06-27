@@ -1,6 +1,6 @@
+from sql.usuario_sql import *
 from data.database import obter_conexao
 from models.usuario import Usuario
-from sql.usuario_sql import *
 
 
 # Função para criar a tabela de usuários
@@ -8,7 +8,7 @@ def criar_tabela_usuario():
     """Cria a tabela Usuario se ela não existir."""
     conexao = obter_conexao()
     cursor = conexao.cursor()
-    cursor.execute(CRIAR_TABELA_USUARIO)
+    cursor.execute(CREATE_TABLE_USUARIO)
     conexao.commit()
     conexao.close()
 

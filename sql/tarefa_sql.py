@@ -8,7 +8,6 @@ CREATE TABLE IF NOT EXISTS tarefa (
     endereco TEXT NOT NULL,
     valor REAL,
     data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    avaliacao REAL,
     status TEXT NOT NULL,
     FOREIGN KEY (empregador) REFERENCES usuario (id),
     FOREIGN KEY (freelancer) REFERENCES usuario (id)
@@ -23,8 +22,8 @@ LIMIT 20 OFFSET ?;
 
 # Comando para inserir uma nova tarefa
 INSERIR_TAREFA = """
-INSERT INTO tarefa (descricao, empregador, freelancer, endereco, valor, data, avaliacao, status)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+INSERT INTO tarefa (descricao, empregador, endereco, valor, data, status)
+VALUES (?, ?, ?, ?, ?, ?);
 """
 
 # Comando para editar uma tarefa para inserir valor e freelancer
